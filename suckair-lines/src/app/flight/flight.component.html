@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/SVG/sucker.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> suckAIR
+        </a>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Hotels <!-- <span class="sr-only">(current)</span> --></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cars</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Select flight</a>
+                    <a class="dropdown-item" href="#">Destination map</a>
+                    <a class="dropdown-item" href="#">Timetable</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Trip planner</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cars</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+
+</nav>
+
+<h1>Choose date and connection</h1>
+
+<div class="wrapper">
+
+    <!-- //departure date -->
+    <h4>Departure date</h4> <input type="date" [min]="todayShort" id="departureTime" [(ngModel)]="departureDate">
+    <!-- returning flight date -->
+
+    <h4>Returning flight date</h4>
+    <input type="date" id="arrivalTime" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate">
+
+    <br>
+
+    <!-- chosen airport for departure -->
+
+    <h4>Airport of Departure</h4>
+    <select name="" id="" [(ngModel)]="departureAirport">
+    <option [value]="city.key" *ngFor="let city of opts">
+      {{city.key}}
+    </option>
+  </select>
+
+    <!-- chosen destination -->
+    <h4>Destination (must be different than departure location)</h4>
+    <select name="" id="" [(ngModel)]="destinationAirport">
+    <ng-container *ngFor="let city of opts">
+    <option [value]="city.key" *ngIf="city.key !== departureAirport" >
+      {{ city.key }}
+    </option>
+    </ng-container>
+  </select>
+
+    <!-- number of passengers (limit of 9) -->
+
+    <h3>Number of passengers</h3>
+    <input type="number" id="passengers" [(ngModel)]="numberOfPassengers">
+
+    <br>
+
+    <button routerLink="/summary" [disabled]="numberOfPassengers <= 0 || numberOfPassengers > 9" (click)="saving()">To summary</button>
+    <br>
+
+    <br>
+    <!-- <button (click)="delete()"> DELETE LOCAL STORAGE</button> -->
+</div>
+<router-outlet> </router-outlet>
