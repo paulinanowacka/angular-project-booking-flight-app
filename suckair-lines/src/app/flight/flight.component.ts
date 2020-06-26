@@ -1,19 +1,25 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { HostListener} from "@angular/core";
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { TimeoutService } from '../timeout.service';
+
+
+
 @Component({
   selector: "app-flight",
   templateUrl: "./flight.component.html",
-  styleUrls: ["./flight.component.scss"]
+  styleUrls: ["./flight.component.scss"],
+  providers: [TimeoutService]
 })
 export class FlightComponent implements OnInit {
-  constructor(private router: Router) {
+
+  constructor(private router: Router, private timeoutService: TimeoutService) {
     this.showStorage = localStorage.getItem("flightdetails") || {};
   }
 
   ngOnInit() {
-    this.resetTimer();
+    this.timeoutService.resetTimer();
   }
+
   public time: any;
   public numberOfPassengers: number = 1;
   public departureDate: any;
@@ -21,43 +27,72 @@ export class FlightComponent implements OnInit {
   public departureAirport: string;
   public destinationAirport: string;
   public showStorage: any;
+  public departureAPI;
+  public arrivalAPI;
+  public basePrice: number;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
 
   public cities = ["Warsaw", "Paris", "New York"];
   public opts = [
-    { key: "Warsaw", value: ["paris,new york"] },
-    { key: "Paris", value: ["warsaw,new york"] },
-    { key: "New York", value: ["warsaw, paris,"] }
+    { key: "Warsaw", value: ["paris,new york"]},
+    { key: "Paris", value: ["warsaw,new york"]},
+    { key: "New York", value: ["warsaw, paris,"]}
   ];
 
-  @HostListener('document:mousemove')
-  @HostListener('document:keypress')
-  @HostListener('document:click')
-  @HostListener('document:wheel')
-  resetTimer() {
-    clearTimeout(this.time);
-    this.time = setTimeout(() => {
-    localStorage.removeItem("flightdetails");
-    alert("You have been inactive for 15 seconds. Please start again.");
-    this.router.navigate(["/flight"]);
-    }, 180000);
+  async getConnection() {
+    return fetch(
+      `https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.departureAPI}/${this.arrivalAPI}/${this.departureDate}?inboundpartialdate=${this.returnDate}`,
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host":
+            "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+          "x-rapidapi-key": "4ffdf62c6bmshfb49ff445025abep1e2116jsn7d7aae645a00"
+        }
+      }
+    )
+      .then(response => response.json())
+      .then(data => data.Quotes[0].MinPrice)
+      .catch(err => {
+        console.log(err);
+      });
   }
 
-  saving() {
-    localStorage.removeItem("flightdetails");
-    let dataStorage = {
-      departureDate: this.departureDate,
-      returnDate: this.returnDate,
-      departureAirport: this.departureAirport,
-      arrivalAirport: this.destinationAirport,
-      passengersNumber: this.numberOfPassengers
-    };
-    localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
-    this.showStorage = JSON.parse(localStorage.getItem("flightdetails"));
-  }
+  async saving() {
+    if (this.departureAirport == "Warsaw") {
+      this.departureAPI = "WAW-sky";
+    } else if (this.departureAirport == "Paris") {
+      this.departureAPI = "CDG-sky";
+    } else if (this.departureAirport == "New York") {
+      this.departureAPI = "JFK-sky";
+    }
+    if (this.destinationAirport == "Warsaw") {
+      this.arrivalAPI = "WAW-sky";
+    } else if (this.destinationAirport == "Paris") {
+      this.arrivalAPI = "CDG-sky";
+    } else if (this.destinationAirport == "New York") {
+      this.arrivalAPI = "JFK-sky";
+    }
 
-  delete() {
-    localStorage.removeItem("flightdetails");
+    try {
+      this.basePrice = await this.getConnection();
+
+      let dataStorage = {
+        departureDate: this.departureDate,
+        returnDate: this.returnDate,
+        departureAirport: this.departureAirport,
+        arrivalAirport: this.destinationAirport,
+        passengersNumber: this.numberOfPassengers,
+        departureAPI: this.departureAPI,
+        arrivalAPI: this.arrivalAPI,
+        basePrice: this.basePrice
+      };
+
+      localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
+      this.showStorage = JSON.parse(localStorage.getItem("flightdetails"));
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

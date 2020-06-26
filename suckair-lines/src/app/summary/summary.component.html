@@ -1,5 +1,4 @@
-<h1>
-    Summary</h1>
+<h1>Summary</h1>
 
 <ul>
     <li>Departure date: {{ showStorage.departureDate }} </li>
@@ -7,4 +6,15 @@
     <li>Departure airport: {{ showStorage.departureAirport }} </li>
     <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
     <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
+
+
+</ul>
+Price in PLN: {{ showStorage.basePrice }} <br>
+<br><button (click)="countEur()">EUR:</button>{{ priceEur }}
+<br><button (click)="countUsd()">USD:</button>{{ priceUsd }}
+<br>
+
+<ul>
+    <li>Pokazać się powinna informacja o dotychczas wybranych opcjach lotu </li>
+    <li>Cena biletu w PLN, EUR i USD</li>
 </ul>
