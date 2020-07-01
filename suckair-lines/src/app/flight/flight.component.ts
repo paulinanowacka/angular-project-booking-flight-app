@@ -40,6 +40,24 @@ export class FlightComponent implements OnInit {
     { key: "New York", value: ["warsaw, paris,"]}
   ];
 
+  public fancy={
+    backgroundColor: "#FEEDCC",
+    border: "3px solid white",
+    borderRadius: "10px",
+    textAlign: "center",
+    height: "40px"
+  }
+  public fancyButton={
+    backgroundColor: "#FDB729",
+    border: "3px solid white",
+    borderRadius: "10px",
+    textAlign: "center",
+    height: "40px",
+    width: "200px",
+    textTransform: "uppercase",
+    fontWeight: "bold",
+  }
+
   async getConnection() {
     return fetch(
       `https://cors-anywhere.herokuapp.com/https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/PL/PLN/en-US/${this.departureAPI}/${this.arrivalAPI}/${this.departureDate}?inboundpartialdate=${this.returnDate}`,

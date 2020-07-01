@@ -1,3 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-fluid {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffbe2e;
+    padding: 5%;
+}
+
+.wrapper {
+    border: 4px solid black;
+    border-radius: 30px;
+    padding: 32px;
+    height: 100%;
+}
+
+header.div3 {
+    height: 10%;
+    .logo {
+        height: 5vh;
+    }
+}
+
+main.div4 {
+    display: flex;
+    height: 80%;
+}
+
+.div5 {
+    width: 50%;
+}
+
+.chosen-seats {
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 60%;
+    max-height: 90%;
+    background-color: #D92027;
+    text-align: center;
+    border-radius: 30px;
+    &__header {
+        text-shadow: 3px 3px #FEEDCC;
+        text-transform: uppercase;
+        font-weight: bold;
+        height: auto;
+        padding: 0.5rem 0;
+        background-color: #ED7931;
+        font-size: 2.5rem;
+        color: black;
+        border-radius: 30px 30px 0px 0px;
+        border: 5px solid white;
+        border-bottom: transparent;
+        box-shadow: 5px 5px 5px black;
+    }
+    &__list {
+        border: 5px solid white;
+        border-radius: 0px 0px 30px 30px;
+        box-shadow: 5px 5px 5px black;
+        padding: 1.5rem;
+        margin: 0 auto;
+        p {
+            padding: 0.5rem 0;
+            margin: 0;
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+.seatmap {
+    width: 50%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+// choosing seats
 .occupied {
     fill: gold;
 }

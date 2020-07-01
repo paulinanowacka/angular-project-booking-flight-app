@@ -1,8 +1,42 @@
-<h1>Ekran logowania</h1>
+<div class="container-fluid">
+    <div class="wrapper">
+        <header class="div3">
+            <a href="#"><img class="logo" src="../../assets/folder bez nazwy/logo.png" alt="logo suckair lines"></a>
+        </header>
+        <main class="div4">
+            <div class="div5">
+                <img class="svg" src="../../assets/svg/travel.svg" alt="travel illustration">
+            </div>
+            <div class="login">
+                <div class="login__header">
+                    <img class="travel-time" src="../../assets/svg/time.svg" alt="time to travel">
+                </div>
+                <div class="login__inputs">
+                    <div class="login__inputs__text">if you want to choose seats, you have to log first ;)
+                    </div>
+                    <div class="login__inputs__email">
+                        <label for="email">your email adress</label>
+                        <input type="email" placeholder="e-mail" #email [ngStyle]="fancy">
+                    </div>
+                    <div class="login__inputs__password">
+                        <label for="password">your password</label>
+                        <input type="password" placeholder="password" #password [ngStyle]="fancy">
+                    </div>
+                    <div class="login__inputs__button">
+                        <button (click)="log(email, password)" [ngStyle]="fancyButton">sign-in</button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <footer class="div7">COLLEGIUM DA VINCI 2020 || FINAL PROJECT FRONTEND-DEVELOPER || PAULINA NOWACKA & PATRYCJA STUKOWSKA</footer>
+    </div>
+</div>
+<!-- <h1>Ekran logowania</h1>
 
 <div class="wrapper">
-    <input type="text" placeholder="e-mail" #email>
-    <input type="text" placeholder="hasło" #password>
+    <input type="text" placeholder="e-mail" #email [ngStyle]="fancy">
+    <input type="text" placeholder="hasło" #password [ngStyle]="fancy">
 
     <button (click)="log(email, password)">Zaloguj się </button> {{ comUser }}
 </div>
@@ -11,4 +45,4 @@
 
 <ul>Do zrobienia:
     <li>Sprawdzenie dany użytkownik istnieje - albo z zewnętrzego JSONa albo z pliku users.ts - jeżeli tak, to przekieruj do wyboru komponentu, jeżeli nie - wyświetl komunikat</li>
-</ul>
+</ul> -->

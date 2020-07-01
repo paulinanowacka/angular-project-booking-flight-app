@@ -13,6 +13,16 @@ export class Boeing737Component implements OnInit {
   constructor(private timeoutService: TimeoutService) {
     this.showStorage = localStorage.getItem("flightdetails") || {};
   }
+  public fancyButton={
+    backgroundColor: "#FDB729",
+    border: "3px solid white",
+    borderRadius: "10px",
+    textAlign: "center",
+    height: "40px",
+    width: "200px",
+    textTransform: "uppercase",
+    fontWeight: "bold",
+  }
 
   public showStorage: any;
 

@@ -30,6 +30,7 @@
                         "styles": [
                             "src/styles.scss",
                             "/Users/paulinanowacka/Desktop/angular-project-pn/suckair-lines/node_modules/bootstrap/dist/css/bootstrap.css"
+
                         ],
                         "scripts": []
                     },
@@ -90,9 +91,9 @@
                             "src/assets"
                         ],
                         "styles": [
-
                             "src/styles.scss",
                             "/Users/paulinanowacka/Desktop/angular-project-pn/suckair-lines/node_modules/bootstrap/dist/css/bootstrap.css"
+
                         ],
                         "scripts": []
                     }

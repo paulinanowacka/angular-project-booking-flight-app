@@ -24,6 +24,6 @@ export class TimeoutService {
     localStorage.removeItem("flightdetails");
     console.log("Timeout - deleting local storage and returning to landing page.");
     this.router.navigate(["/flight"]);
-    }, 18000000000);
+    }, 60000);
   }
 }
