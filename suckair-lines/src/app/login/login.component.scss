@@ -42,15 +42,22 @@ main.div4 {
 }
 
 .login {
-    max-width: 40%;
-    padding: 5%;
+    max-width: 40vw;
+    padding: 3%;
     margin: auto 0;
     &__header {
+        text-align: center;
+        text-shadow: 3px 3px #FEEDCC;
+        text-transform: uppercase;
+        font-weight: bold;
+        height: auto;
+        padding: 0.5rem 0;
+        background-color: #ED7931;
+        font-size: 2.5rem;
+        color: black;
+        border-radius: 30px 30px 0px 0px;
         border: 5px solid white;
         border-bottom: transparent;
-        background-color: #ED7931;
-        padding: 20px;
-        border-radius: 30px 30px 0px 0px;
         box-shadow: 5px 5px 5px black;
     }
     &__inputs {
@@ -70,14 +77,34 @@ main.div4 {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin: 20px auto 0px auto;
-            width: 60%;
+            margin: 4% auto 0px auto;
+            width: 70%;
+            .fancy {
+                background-color: #FEEDCC;
+                border: 3px solid white;
+                border-radius: 10px;
+                text-align: center;
+                height: 40px;
+            }
+        }
+        &__text {
+            color: #FEEDCC;
         }
         &__button {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            .fancyButton {
+                background-color: #FDB729;
+                border: 3px solid white;
+                border-radius: 10px;
+                text-align: center;
+                height: 40px;
+                width: 200px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -87,4 +114,5 @@ footer.div7 {
     padding-top: 60px;
     color: white;
     font-size: 0.8EM;
+    text-align: center;
 }

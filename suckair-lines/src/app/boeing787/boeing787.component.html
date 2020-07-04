@@ -10,18 +10,18 @@
                         Chosen seats
                     </div>
                     <div class="chosen-seats__list">
-                        <p>{{ seatsList[0] }}</p>
-                        <p>{{ seatsList[1] }}</p>
-                        <p>{{ seatsList[2] }}</p>
-                        <p>{{ seatsList[3] }}</p>
-                        <p>{{ seatsList[4] }}</p>
-                        <p>{{ seatsList[5] }}</p>
-                        <p>{{ seatsList[6] }}</p>
-                        <p>{{ seatsList[7] }}</p>
-                        <p>{{ seatsList[8] }}</p>
-                        <div class="chosen-seats__button">
-                            <button routerLink="/summary" [ngStyle]="fancyButton">next</button>
+                        <div class="chosen-seats__list__row">
+                            <div class="col1">
+                                {{ seatsList[0] }} {{ seatsList[1] }} {{ seatsList[2] }} {{ seatsList[3] }} {{ seatsList[4] }}
+                            </div>
+                            <div class="col2">
+                                {{ seatsList[5] }} {{ seatsList[6] }} {{ seatsList[7] }} {{ seatsList[8] }}
+                            </div>
                         </div>
+
+                    </div>
+                    <div class="chosen-seats__button">
+                        <button routerLink="/flightdetails" class="fancyButton" (click)="saveData()">next</button>
                     </div>
 
                 </div>

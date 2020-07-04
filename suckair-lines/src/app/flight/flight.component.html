@@ -9,19 +9,19 @@
             </div>
             <div class="travel">
                 <div class="travel__header">
-                    <img class="travel-time" src="https://svgshare.com/i/MYm.svg" alt="time to travel">
+                    time to travel
                 </div>
                 <div class="travel__choices">
                     <div class="travel__choices__row1">
                         <div class="origin">
-                            <label for="departureAirport">Origin</label>
-                            <select name="" id="" [(ngModel)]="departureAirport" [ngStyle]="fancy">
+                            <label class="label" for="departureAirport">Origin</label>
+                            <select class="input" name="" id="" [(ngModel)]="departureAirport">
                                           <option [value]="city.key" *ngFor="let city of opts">{{city.key}}</option>
                                         </select>
                         </div>
                         <div class="destination">
-                            <label for="destinationAirport">Destination</label>
-                            <select name="" id="" [(ngModel)]="destinationAirport" [ngStyle]="fancy">
+                            <label class="label" for="destinationAirport">Destination</label>
+                            <select class="input" name="" id="" [(ngModel)]="destinationAirport">
                                           <ng-container *ngFor="let city of opts">
                                             <option [value]="city.key" *ngIf="city.key !== departureAirport">{{ city.key }}</option>
                                           </ng-container>
@@ -30,28 +30,29 @@
                     </div>
                     <div class="travel__choices__row2">
                         <div class="origin">
-                            <label for="departureTime">Departure date</label>
-                            <input type="date" [min]="todayShort" id="departureTime" [(ngModel)]="departureDate" [ngStyle]="fancy">
+                            <label class="label" for="departureTime">Flight date</label>
+                            <input class="input" type="date" [min]="todayShort" id="departureTime" [(ngModel)]="departureDate">
                         </div>
                         <div class="destination">
-                            <label for="arrivalTime">Return date</label>
-                            <input type="date" id="arrivalTime" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate" [ngStyle]="fancy">
+                            <label class="label" for="arrivalTime">Return date</label>
+                            <input class="input" type="date" id="arrivalTime" [disabled]="" [min]="departureDate" [(ngModel)]="returnDate">
                         </div>
                     </div>
                     <div class="travel__choices__row3">
                         <div class="passengers">
-                            <label for="passengers">Quantity of passengers</label>
-                            <input type="number" id="passengers" [(ngModel)]="numberOfPassengers" [ngStyle]="fancy">
+                            <label class="label" for="passengers">Quantity of passengers</label>
+                            <input class="input2" type="number" id="passengers" [(ngModel)]="numberOfPassengers">
                         </div>
                     </div>
                     <div class="travel__choices__button">
-                        <button routerLink="/login" [disabled]="numberOfPassengers <= 0 || numberOfPassengers > 9" (click)="saving()" [ngStyle]="fancyButton">next</button>
+                        <button routerLink="/login" [disabled]="numberOfPassengers <= 0 || numberOfPassengers > 9" (click)="saving()" class="fancyButton">next</button>
                     </div>
 
                 </div>
             </div>
         </main>
-        <footer class="div7">COLLEGIUM DA VINCI 2020 || FINAL PROJECT FRONTEND-DEVELOPER || PAULINA NOWACKA & PATRYCJA STUKOWSKA</footer>
+
     </div>
+    <footer class="div7">COLLEGIUM DA VINCI 2020 || FINAL PROJECT FRONTEND-DEVELOPER || PAULINA NOWACKA & PATRYCJA STUKOWSKA</footer>
 </div>
 <router-outlet> </router-outlet>

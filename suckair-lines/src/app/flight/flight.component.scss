@@ -42,15 +42,22 @@ main.div4 {
 }
 
 .travel {
-    max-width: 40%;
-    padding: 5%;
+    max-width: 40vw;
+    padding: 3%;
     margin: auto 0;
     &__header {
+        text-align: center;
+        text-shadow: 3px 3px #FEEDCC;
+        text-transform: uppercase;
+        font-weight: bold;
+        height: auto;
+        padding: 0.5rem 0;
+        background-color: #ED7931;
+        font-size: 2.5rem;
+        color: black;
+        border-radius: 30px 30px 0px 0px;
         border: 5px solid white;
         border-bottom: transparent;
-        background-color: #ED7931;
-        padding: 20px;
-        border-radius: 30px 30px 0px 0px;
         box-shadow: 5px 5px 5px black;
     }
     &__choices {
@@ -60,6 +67,7 @@ main.div4 {
         text-transform: uppercase;
         font-weight: bold;
         box-shadow: 5px 5px 5px black;
+        height: auto;
         &__row1,
         &__row2,
         &__row3 {
@@ -67,25 +75,59 @@ main.div4 {
             text-align: center;
             .origin,
             .destination {
-                width: 50%;
+                width: 15vw;
                 display: flex;
                 flex-direction: column;
-                margin: 20px;
+                margin: 4% 4% 0 4%;
+                font-size: 1rem;
+                .input {
+                    background-color: #FEEDCC;
+                    border: 3px solid white;
+                    border-radius: 10px;
+                    text-align: center;
+                    height: 4vh;
+                    width: 100%;
+                    font-size: 0.8rem;
+                }
+                input[type="date"] {
+                    display: -webkit-inline-flex;
+                    padding: 0px;
+                    font-size: 0.8rem;
+                }
             }
             .passengers {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 text-align: center;
-                margin: 20px;
+                margin: 4% 4% 0 4%;
+                .input2 {
+                    background-color: #FEEDCC;
+                    border: 3px solid white;
+                    border-radius: 10px;
+                    text-align: center;
+                    height: 4vh;
+                    width: 100%;
+                    font-size: 0.8rem;
+                }
             }
         }
         &__button {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            margin-top: 5%;
+            margin-bottom: 4%;
             width: 100%;
+            .fancyButton {
+                background-color: #FDB729;
+                border: 3px solid white;
+                border-radius: 10px;
+                text-align: center;
+                height: 4vh;
+                width: 50%;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -94,5 +136,6 @@ footer.div7 {
     height: 10%;
     padding-top: 60px;
     color: white;
-    font-size: 0.8EM;
+    font-size: 0.5EM;
+    text-align: center;
 }

@@ -12,6 +12,9 @@ import { Boeing737Component } from './boeing737/boeing737.component';
 import { Boeing787Component } from './boeing787/boeing787.component';
 import { BombardierComponent } from './bombardier/bombardier.component';
 import { LoginComponent } from './login/login.component';
+import { FlightdetailsComponent } from './flightdetails/flightdetails.component';
+import { ConnectionService} from './connection.service'
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path:'', redirectTo:"/flight", pathMatch:"full"},
@@ -21,12 +24,13 @@ const routes: Routes = [
   {path: 'bombardier', component: BombardierComponent },
   {path: 'boeing737', component: Boeing737Component },
   {path: 'boeing787', component: Boeing787Component },
+  {path: 'flightdetails', component: FlightdetailsComponent },
 ]
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(routes)],
-  declarations: [ AppComponent, FlightComponent, SummaryComponent, Boeing737Component, Boeing787Component, BombardierComponent, LoginComponent ],
+  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(routes), HttpClientModule],
+  declarations: [ AppComponent, FlightComponent, SummaryComponent, Boeing737Component, Boeing787Component, BombardierComponent, LoginComponent, FlightdetailsComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [TimeoutService]
+  providers: [TimeoutService, ConnectionService]
 })
 export class AppModule { }

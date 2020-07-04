@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeoutService } from '../timeout.service';
 
-const MAX_SEATS = 9;
 
 @Component({
   selector: 'app-boeing787',
@@ -11,18 +10,9 @@ const MAX_SEATS = 9;
 export class Boeing787Component implements OnInit {
 
   constructor(private timeoutService: TimeoutService) {
-    this.showStorage = localStorage.getItem("flightdetails") || {};
+    this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
   }
-  public fancyButton={
-    backgroundColor: "#FDB729",
-    border: "3px solid white",
-    borderRadius: "10px",
-    textAlign: "center",
-    height: "40px",
-    width: "200px",
-    textTransform: "uppercase",
-    fontWeight: "bold",
-  }
+
   public showStorage: any;
 
   ngOnInit() {
@@ -32,6 +22,9 @@ export class Boeing787Component implements OnInit {
   counter = 0;
   public chosenSeat: any;
   public seatsList = [];
+  public chosenPlane = "boeing787";
+  public alert = "";
+  public existingData = localStorage.getItem("flightdetails")
 
   onClick($event) {
     const seat = $event.target.closest('.st14');
@@ -45,13 +38,19 @@ export class Boeing787Component implements OnInit {
       const toRemove = this.seatsList.indexOf(this.chosenSeat);
       this.seatsList.splice(toRemove,1);
       this.counter -= 1;
-  } else if (this.counter < MAX_SEATS) {
+  } else if (this.counter < this.showStorage.passengersNumber) {
       seat.removeAttribute("style");
       seat.setAttribute("class", "occupied st14");
       this.seatsList.push(this.chosenSeat)
       this.counter += 1;
-  } else if (this.counter == MAX_SEATS) {
-    alert("You have reached maximum selection of seats.")
+  } else if (this.counter == this.showStorage.passengersNumber) {
+    alert(`You have reached maximum selection of seats for ${this.showStorage.passengersNumber} passengers`)
   }
+  localStorage.setItem("chosenSeats", JSON.stringify(this.seatsList));
+  }
+  saveData() {
+    this.existingData = this.existingData ? JSON.parse(this.existingData) : {};
+    this.existingData["chosenPlane"] = this.chosenPlane;
+    localStorage.setItem("flightdetails", JSON.stringify(this.existingData))
   }
 }

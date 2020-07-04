@@ -9,21 +9,21 @@
             </div>
             <div class="login">
                 <div class="login__header">
-                    <img class="travel-time" src="https://svgshare.com/i/MYm.svg" alt="time to travel">
+                    sign in
                 </div>
                 <div class="login__inputs">
-                    <div class="login__inputs__text">if you want to choose seats, you have to log first ;)
+                    <div class="login__inputs__text">{{comUser}}
                     </div>
                     <div class="login__inputs__email">
                         <label for="email">your email adress</label>
-                        <input type="email" placeholder="e-mail" #email [ngStyle]="fancy">
+                        <input class="fancy" type="email" placeholder="e-mail" #email>
                     </div>
                     <div class="login__inputs__password">
                         <label for="password">your password</label>
-                        <input type="password" placeholder="password" #password [ngStyle]="fancy">
+                        <input class="fancy" type="password" placeholder="password" #password>
                     </div>
                     <div class="login__inputs__button">
-                        <button (click)="log(email, password)" [ngStyle]="fancyButton">sign-in</button>
+                        <button class="fancyButton" (click)="log(email, password)">sign-in</button>
                     </div>
 
                 </div>
