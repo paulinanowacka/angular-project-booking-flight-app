@@ -78,7 +78,8 @@ main.div4 {
             flex-direction: column;
             justify-content: center;
             margin: 4% auto 0px auto;
-            width: 70%;
+            padding: 0 5%;
+            width: 100%;
             .fancy {
                 background-color: #FEEDCC;
                 border: 3px solid white;
@@ -111,8 +112,8 @@ main.div4 {
 
 footer.div7 {
     height: 10%;
-    padding-top: 60px;
     color: white;
-    font-size: 0.8EM;
+    font-size: 0.5EM;
     text-align: center;
+    padding: 2%;
 }
