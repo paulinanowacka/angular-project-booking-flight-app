@@ -38,10 +38,15 @@
                             <p class="details__content__row__col1__label">final price </p>
                             <p class="details__content__row__col1__value">{{ (finalPrice | number : '1.2-2') + " " + currency }} </p>
                         </div>
+                        <div class="details__content__row__col2">
+                            <button class="fancyButton" (click)="resetCurrencies()">pln</button>
+                            <button class="fancyButton" (click)="countEur()">eur</button>
+                            <button class="fancyButton" (click)="countUsd()">usd</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col passengers">
+            <div class="passengers">
                 <div class="passengers__header2">
                     passengers' data
                 </div>

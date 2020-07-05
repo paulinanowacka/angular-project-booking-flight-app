@@ -48,7 +48,7 @@ main.div4 {
     width: 60%;
     text-align: center;
     border-radius: 30px;
-    height: 50vh;
+    height: 50%;
     &__header {
         text-shadow: 3px 3px $shadow-color;
         text-transform: uppercase;
@@ -106,7 +106,6 @@ main.div4 {
 
 .seatmap {
     width: 50%;
-    max-height: 100%;
     overflow: auto;
 }
 
@@ -120,9 +119,59 @@ main.div4 {
 }
 
 footer.div7 {
-    height: 10%;
     color: $border-color;
     font-size: 0.5EM;
     text-align: center;
-    padding: 2%;
+    padding-top: 2%;
+}
+
+@media only screen and (max-width: 575px) {
+    .container-fluid {
+        padding-bottom: 8%;
+    }
+    .wrapper {
+        padding: 16px;
+    }
+    main.div4 {
+        flex-direction: column;
+        height: 90%;
+    }
+    .div5 {
+        width: 100%;
+        height: 45%;
+        margin-bottom: 20px;
+        .chosen-seats {
+            margin-top: 0;
+            width: 100%;
+            height: auto;
+            &__header {
+                font-size: 1.6rem;
+            }
+            &__list {
+                margin-bottom: 5%;
+            }
+        }
+    }
+    .seatmap {
+        width: 100%;
+    }
+    footer.div7 {
+        font-size: 0.4rem;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 991px) {
+    .wrapper {
+        padding: 16px;
+    }
+    .chosen-seats {
+        margin: 3rem 0;
+        width: 100%;
+        &__header {
+            font-size: 1.5rem;
+        }
+    }
+    footer.div7 {
+        font-size: 0.4rem;
+    }
 }

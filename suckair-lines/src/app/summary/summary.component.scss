@@ -154,29 +154,115 @@ main.div4 {
     }
 }
 
-.button {
-    display: flex;
-    // position: absolute;
-    // bottom: 4%;
-    justify-content: center;
-    width: 100%;
-    .fancyButton {
-        background-color: $main-color;
-        border: 5px solid $white-border;
-        border-radius: 10px;
-        text-align: center;
-        height: 5vh;
-        width: 200px;
-        text-transform: uppercase;
-        font-weight: bold;
-        box-shadow: 5px 5px 5px $font-color;
-    }
+.fancyButton {
+    margin-top: 8%;
+    margin-right: 5%;
+    width: 20%;
+    padding: 1%;
+    background-color: $main-color;
+    border: 3px solid $white-border;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px $font-color;
 }
 
 footer.div7 {
-    height: 10%;
     color: $white-border;
     font-size: 0.5EM;
     text-align: center;
-    padding: 2%;
+    padding-top: 2%;
+}
+
+@media only screen and (max-width: 575px) {
+    .container-fluid {
+        padding-bottom: 8%;
+    }
+    .wrapper {
+        padding: 16px;
+    }
+    main.div4 {
+        flex-direction: column;
+        overflow: auto;
+        padding: 0 10px;
+        height: 88%;
+    }
+    .passengers {
+        width: 100%;
+        &__header2 {
+            font-size: 1.4rem;
+        }
+    }
+    .details {
+        width: 100%;
+        &__header {
+            font-size: 1.5rem;
+        }
+        &__content {
+            &__row {
+                flex-direction: column;
+                &__col1,
+                &__col2 {
+                    width: 100%;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    footer.div7 {
+        font-size: 0.4rem;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 991px) {
+    .wrapper {
+        padding: 16px 0 16px 16px;
+    }
+    .passengers {
+        width: 100%;
+        padding-top: 0;
+        &__header2 {
+            font-size: 1.3rem;
+        }
+    }
+    .details {
+        width: 100%;
+        padding-top: 0;
+        height: 100%;
+        &__header {
+            font-size: 1.3rem;
+        }
+        &__content {
+            &__row {
+                flex-direction: column;
+                &__col1,
+                &__col2 {
+                    width: 100%;
+                    padding: 0;
+                    &__value {
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+        }
+    }
+    .fancyButton {
+        margin-top: 4%;
+    }
+    footer.div7 {
+        font-size: 0.4rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .wrapper {
+        padding: 16px;
+    }
+    .details {
+        width: 58%;
+    }
+    .passengers {
+        width: 42%;
+    }
 }
