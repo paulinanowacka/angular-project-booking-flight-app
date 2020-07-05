@@ -29,7 +29,8 @@ export class FlightComponent implements OnInit {
   public showStorage: any;
   public departureAPI;
   public arrivalAPI;
-  public basePrice: number;
+  public connection;
+  public basePrice: number = 0;
   public today = new Date();
   public todayShort = new Date().toISOString().slice(0,10);
 
@@ -43,6 +44,8 @@ export class FlightComponent implements OnInit {
 
 
     saving() {
+      localStorage.removeItem("flightdetails");
+      this.connection = this.departureAirport + this.destinationAirport
     if (this.departureAirport == "Warsaw") {
       this.departureAPI = "WAW-sky";
     } else if (this.departureAirport == "Paris") {
@@ -66,7 +69,8 @@ export class FlightComponent implements OnInit {
         passengersNumber: this.numberOfPassengers,
         departureAPI: this.departureAPI,
         arrivalAPI: this.arrivalAPI,
-        basePrice: this.basePrice
+        basePrice: this.basePrice,
+        connection: this.connection,
       };
 
       localStorage.setItem("flightdetails", JSON.stringify(dataStorage));
