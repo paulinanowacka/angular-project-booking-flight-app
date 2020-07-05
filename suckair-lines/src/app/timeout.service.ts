@@ -18,7 +18,9 @@ export class TimeoutService {
     clearTimeout(this.time);
     this.time = setTimeout(() => {
     localStorage.removeItem("flightdetails");
-    console.log("Timeout - deleting local storage and returning to landing page.");
+    localStorage.removeItem("passengers");
+    localStorage.removeItem("chosenSeats");
+    alert("Due to inactivity, your session has expired. You will be redirected to main page");
     this.router.navigate(["/flight"]);
     }, 180000);
   }
