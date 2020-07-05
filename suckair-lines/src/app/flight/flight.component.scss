@@ -42,7 +42,7 @@ main.div4 {
 }
 
 .travel {
-    max-width: 40vw;
+    width: 40vw;
     padding: 3%;
     margin: auto 0;
     &__header {
@@ -68,6 +68,7 @@ main.div4 {
         font-weight: bold;
         box-shadow: 5px 5px 5px black;
         height: auto;
+        font-size: 1rem;
         &__row1,
         &__row2,
         &__row3 {
@@ -75,11 +76,10 @@ main.div4 {
             text-align: center;
             .origin,
             .destination {
-                width: 15vw;
+                width: 50%;
                 display: flex;
                 flex-direction: column;
                 margin: 4% 4% 0 4%;
-                font-size: 1rem;
                 .input {
                     background-color: #FEEDCC;
                     border: 3px solid white;
@@ -138,4 +138,98 @@ footer.div7 {
     font-size: 0.5EM;
     text-align: center;
     padding: 2%;
+}
+
+@media only screen and (max-width: 575px) {
+    .container-fluid {
+        padding-bottom: 8%;
+    }
+    main.div4 {
+        flex-direction: column;
+    }
+    .div5 {
+        display: none;
+    }
+    .travel {
+        width: 100%;
+        &__choices {
+            font-size: 0.8rem;
+            padding: 2% 0 0 0;
+            &__row1,
+            &__row2,
+            &__row3 {
+                width: 90%;
+                margin: 0 auto;
+                flex-direction: column;
+                text-align: left;
+                .origin,
+                .destination,
+                .passengers {
+                    text-align: left;
+                    width: 100%;
+                    margin: 0;
+                    .input {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    footer.div7 {
+        font-size: 0.4rem;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 991px) {
+    .wrapper {
+        padding: 16px;
+    }
+    .div5 {
+        width: 50%;
+        padding: 0;
+    }
+    .travel {
+        padding-right: 0;
+        &__header {
+            font-size: 1.6rem;
+        }
+        &__choices {
+            font-size: 0.8rem;
+            padding: 2% 0 0 0;
+            &__row1,
+            &__row2,
+            &__row3 {
+                width: 90%;
+                margin: 0 auto;
+                flex-direction: column;
+                text-align: left;
+                .origin,
+                .destination,
+                .passengers {
+                    text-align: left;
+                    width: 100%;
+                    margin: 0;
+                    .input {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    footer.div7 {
+        font-size: 0.4rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .wrapper {
+        padding: 24px;
+    }
+    .div5 {
+        width: 50%;
+        padding: 0;
+    }
+    .travel {
+        width: 60%;
+    }
 }
