@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { FlightComponent } from './flight/flight.component';
 
-import { Routes, RouterModule } from '@angular/router';
-import { SummaryComponent } from './summary/summary.component';
-import { TimeoutService } from './timeout.service';
+import { FlightComponent } from './flight/flight.component';
+import { LoginComponent } from './login/login.component';
 import { Boeing737Component } from './boeing737/boeing737.component';
 import { Boeing787Component } from './boeing787/boeing787.component';
 import { BombardierComponent } from './bombardier/bombardier.component';
-import { LoginComponent } from './login/login.component';
 import { FlightdetailsComponent } from './flightdetails/flightdetails.component';
+import { SummaryComponent } from './summary/summary.component';
+
+import { TimeoutService } from './timeout.service';
 import { ConnectionService} from './connection.service'
 import { HttpClientModule } from '@angular/common/http';
 
