@@ -1,4 +1,71 @@
-<h1>Summary</h1>
+<div class="container-fluid">
+    <div class="wrapper">
+        <header class="div3">
+            <a href="#"><img class="logo" src="https://i.imgur.com/knFeM3x.png" alt="logo suckair lines"></a>
+        </header>
+        <main class="div4">
+            <div class="details">
+                <div class="details__header">
+                    flight details
+                </div>
+                <div class="details__content">
+                    <div class="details__content__row">
+                        <div class="details__content__row__col1">
+                            <p class="details__content__row__col1__label">Departure date: </p>
+                            <p class="details__content__row__col1__value">{{ showStorage.departureDate | date: 'fullDate' }}</p>
+                            <p class="details__content__row__col1__label">Returning flight date: </p>
+                            <p class="details__content__row__col1__value">{{ showStorage.returnDate | date: 'fullDate' }} </p>
+                        </div>
+                        <div class="details__content__row__col2">
+                            <p class="details__content__row__col2__label">Departure airport: </p>
+                            <p class="details__content__row__col2__value">{{ showStorage.departureAirport }} </p>
+                            <p class="details__content__row__col2__label">Arrival airport: </p>
+                            <p class="details__content__row__col2__value">{{ showStorage.arrivalAirport }} </p>
+                        </div>
+                    </div>
+                    <div class="details__content__row">
+                        <div class="details__content__row__col1">
+                            <p class="details__content__row__col1__label">Number of passengers: </p>
+                            <p class="details__content__row__col1__value">{{ showStorage.passengersNumber }} </p>
+                        </div>
+                        <div class="details__content__row__col2">
+                            <p class="details__content__row__col2__label">Plane:</p>
+                            <p class="details__content__row__col2__value">{{ showStorage.chosenPlane }}</p>
+                        </div>
+                    </div>
+                    <div class="details__content__row">
+                        <div class="details__content__row__col1">
+                            <p class="details__content__row__col1__label">final price </p>
+                            <p class="details__content__row__col1__value">{{ (finalPrice | number : '1.2-2') + " " + currency }} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col passengers">
+                <div class="passengers__header2">
+                    passengers' data
+                </div>
+                <div class="passengers__content">
+                    <div class="passengers__content__row" *ngFor="let passenger of passengers; let i=index">
+                        <div class="passengers__content__row__col1">
+                            <p class="passengers__content__row__col1__label" for="name">Name and surname</p>
+                            <p class="passengers__content__row__col1__value">{{ passengers[i].name }}</p>
+                            <p class="passengers__content__row__col1__label">Chosen seat: </p>
+                            <p class="passengers__content__row__col1__value">{{ seats[i] }}</p>
+                            <p class="passengers__content__row__col1__label">Luggage: </p>
+                            <p class="passengers__content__row__col1__value">{{ passengers[i].luggage ? 'Yes' : 'No' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <footer class="div7">COLLEGIUM DA VINCI 2020 || FINAL PROJECT FRONTEND-DEVELOPER || PAULINA NOWACKA & PATRYCJA STUKOWSKA</footer>
+</div>
+<router-outlet> </router-outlet>
+
+<!-- <h1>Summary</h1>
 
 <ul>
     <li>Departure date: {{ showStorage.departureDate }} </li>
@@ -17,4 +84,4 @@ Price in PLN: {{ showStorage.basePrice }} <br>
 <ul>
     <li>Pokazać się powinna informacja o dotychczas wybranych opcjach lotu </li>
     <li>Cena biletu w PLN, EUR i USD</li>
-</ul>
+</ul> -->
