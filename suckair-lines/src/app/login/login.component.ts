@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { users } from './users';
 import { TimeoutService } from '../timeout.service';
 import { ConnectionService} from '../connection.service'
-import { DOCUMENT } from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,7 @@ import { DOCUMENT } from "@angular/common";
 })
 export class LoginComponent implements OnInit {
   public comUser = 'if you want to choose seats, you have to log first ;)'
-  constructor(@Inject(DOCUMENT) private document: Document, private router: Router,private timeoutService: TimeoutService, private connectionService: ConnectionService) {
+  constructor(private router: Router,private timeoutService: TimeoutService, private connectionService: ConnectionService) {
     this.showStorage = JSON.parse(localStorage.getItem("flightdetails")) || {};
   }
 
