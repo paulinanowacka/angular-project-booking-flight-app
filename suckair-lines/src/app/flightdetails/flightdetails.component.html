@@ -1,23 +1,62 @@
-<h1>
-    Summary</h1>
-
-<ul>
-    <li>Departure date: {{ showStorage.departureDate | date: 'fullDate' }} </li>
-    <li>Returning flight date: {{ showStorage.returnDate | date: 'fullDate' }} </li>
-    <li>Departure airport: {{ showStorage.departureAirport }} </li>
-    <li>Arrival airport: {{ showStorage.arrivalAirport }} </li>
-    <li>Number of passengers: {{ showStorage.passengersNumber }} </li>
-    <br> Passengers data:
-
-    <div *ngFor="let passenger of passengers; let i=index">
-        <p>Chosen seat: {{ chosenSeats[i] }}</p><input type="text" [name]="'name_' + 1" [(ngModel)]="passenger.name" placeholder="Name and surname"><br>
-        <input type="checkbox" [checked]="passenger.child" (change)="passenger.child = !passenger.child">Child
-        <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = ! passenger.luggage">Luggage
+<div class="container-fluid">
+    <div class="wrapper">
+        <header class="div3">
+            <a href="#"><img class="logo" src="https://i.imgur.com/knFeM3x.png" alt="logo suckair lines"></a>
+        </header>
+        <main class="div4">
+            <div class="details">
+                <div class="details__header">
+                    flight details
+                </div>
+                <div class="details__content">
+                    <div class="details__content__row">
+                        <div class="details__content__row__col1">
+                            <p class="details__content__row__col1__label">Departure date: </p>
+                            <p class="details__content__row__col1__value">{{ showStorage.departureDate | date: 'fullDate' }}</p>
+                            <p class="details__content__row__col1__label">Returning flight date: </p>
+                            <p class="details__content__row__col1__value">{{ showStorage.returnDate | date: 'fullDate' }} </p>
+                        </div>
+                        <div class="details__content__row__col2">
+                            <p class="details__content__row__col2__label">Departure airport: </p>
+                            <p class="details__content__row__col2__value">{{ showStorage.departureAirport }} </p>
+                            <p class="details__content__row__col2__label">Arrival airport: </p>
+                            <p class="details__content__row__col2__value">{{ showStorage.arrivalAirport }} </p>
+                        </div>
+                    </div>
+                    <div class="details__content__row">
+                        <div class="details__content__row__col1">
+                            <p class="details__content__row__col1__label">Number of passengers: </p>
+                            <p class="details__content__row__col1__value">{{ showStorage.passengersNumber }} </p>
+                        </div>
+                        <div class="details__content__row__col2">
+                            <p class="details__content__row__col2__label">Plane:</p>
+                            <p class="details__content__row__col2__value">{{ showStorage.chosenPlane }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col passengers">
+                <div class="passengers__header2">
+                    passengers data
+                </div>
+                <div class="passengers__content">
+                    <div class="passengers__content__row" *ngFor="let passenger of passengers; let i=index">
+                        <div class="passengers__content__row__col1">
+                            <p class="passengers__content__row__col1__label" for="name">Name and surname</p>
+                            <input class="passengers__content__row__col1__value" type="text" [name]="'name_' + 1" [(ngModel)]="passenger.name" placeholder="Name and surname">
+                            <p class="passengers__content__row__col1__label">Chosen seat: </p>
+                            <p class="passengers__content__row__col1__value">{{ chosenSeats[i] }}</p>
+                            <p class="passengers__content__row__col1__label">Luggage: </p>
+                            <input type="checkbox" [checked]="passenger.luggage" (change)="passenger.luggage = ! passenger.luggage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div class="button">
+            <button routerLink="/summary" class="fancyButton" (click)="saveData()">to summary</button>
+        </div>
     </div>
-
-    <br>
-    <button routerLink="/summary" (click)="saveData()">Go to summary</button>
-
-    <br>
-
-    <router-outlet> </router-outlet>
+    <footer class="div7">COLLEGIUM DA VINCI 2020 || FINAL PROJECT FRONTEND-DEVELOPER || PAULINA NOWACKA & PATRYCJA STUKOWSKA</footer>
+</div>
+<router-outlet> </router-outlet>
